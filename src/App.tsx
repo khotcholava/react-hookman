@@ -1,14 +1,11 @@
+import { useRef } from "react";
 import "./App.css";
-import { useToggle } from "./hooks";
+import { useHover } from "./hooks";
 
 function App() {
-  const [isOn, toggle] = useToggle(false);
-  return (
-    <div>
-      <p>{isOn ? "ON" : "OFF"}</p>
-      <button onClick={toggle}>Toggle</button>
-    </div>
-  );
-}
+  const elementRef = useRef<HTMLDivElement>(null);
+  const isHovered = useHover(elementRef);
 
+  return <div ref={elementRef}>{isHovered ? "Hovered!" : "Hover me!"}</div>;
+}
 export default App;

@@ -1,7 +1,7 @@
 {
   "name": "react-hookman",
   "private": false,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A collection of reusable and type-safe React hooks to simplify your development workflow.",
   "type": "module",
   "scripts": {

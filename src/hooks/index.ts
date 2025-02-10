@@ -10,3 +10,4 @@ export * from "./useFetch";
 export * from "./useMousePosition";
 export * from "./useClickOutside";
 export * from "./useHover.ts";
+export * from "./useMobile";

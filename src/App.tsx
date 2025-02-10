@@ -1,11 +1,9 @@
-import { useRef } from "react";
 import "./App.css";
-import { useHover } from "./hooks";
+import { useMobile } from "./hooks";
 
 function App() {
-  const elementRef = useRef<HTMLDivElement>(null);
-  const isHovered = useHover(elementRef);
+  const isMobile = useMobile();
 
-  return <div ref={elementRef}>{isHovered ? "Hovered!" : "Hover me!"}</div>;
+  return <div>{isMobile ? "Mobile!" : "Desktop!"}</div>;
 }
 export default App;

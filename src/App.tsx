@@ -1,12 +1,20 @@
 import "./App.css";
-import { useIdle } from "./hooks";
+import { useDragAndDrop } from "./hooks";
 
 function App() {
-  const isIdle = useIdle(10000); //
+  const [ref, isDragging] = useDragAndDrop<HTMLDivElement>(); // Explicitly type the ref
 
   return (
-    <div style={{ color: isIdle ? "gray" : "green" }}>
-      {isIdle ? "System idle ⏳" : "Active 💻"}
+    <div
+      ref={ref}
+      style={{
+        position: "absolute",
+        backgroundColor: "lightblue",
+        padding: "10px",
+        cursor: isDragging ? "grabbing" : "grab",
+      }}
+    >
+      Drag me!
     </div>
   );
 }

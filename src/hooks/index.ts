@@ -11,3 +11,6 @@ export * from "./useMousePosition";
 export * from "./useClickOutside";
 export * from "./useHover.ts";
 export * from "./useMobile";
+export * from "./useOnlineStatus";
+export * from "./useScrollPosition";
+export * from "./useOnlineStatus.ts";

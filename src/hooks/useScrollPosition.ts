@@ -1,7 +1,8 @@
-import "./App.css";
-import { useScrollPosition } from "./hooks/useScrollPosition";
+import { useState, useEffect } from "react";
 
-function App() {
+/**
+ * 
+  function App() {
   const scrollPosition = useScrollPosition();
 
   return (
@@ -35,4 +36,29 @@ function App() {
     </div>
   );
 }
-export default App;
+ */
+
+export function useScrollPosition(): number {
+  const [scrollPosition, setScrollPosition] = useState<number>(0);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        window.requestAnimationFrame(() => {
+          setScrollPosition(window.scrollY);
+          ticking = false;
+        });
+      }
+    };
+
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return scrollPosition;
+}

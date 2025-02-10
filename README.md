@@ -227,8 +227,6 @@ const ChildComponent: React.FC = () => {
 export default DestroyExample;
 ```
 
-// ... existing code ...
-
 # 🛠 API
 
 `useDestroy(func: () => void)`
@@ -238,8 +236,6 @@ Runs the provided function when the component unmounts.
 | Parameter | Type       | Description                                         |
 | --------- | ---------- | --------------------------------------------------- |
 | func      | () => void | The function to execute when the component unmounts |
-
-// ... existing code ...
 
 # 🌐 `useFetch` Hook
 

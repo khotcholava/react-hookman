@@ -1,20 +1,26 @@
 import "./App.css";
-import { useDragAndDrop } from "./hooks";
+import { useCountdown } from "./hooks";
 
 function App() {
-  const [ref, isDragging] = useDragAndDrop<HTMLDivElement>(); // Explicitly type the ref
+  // Example 1: Pass time in milliseconds
+  const timer = useCountdown(5, "minutes", {
+    showMinutes: true,
+    showSeconds: true,
+  });
 
   return (
-    <div
-      ref={ref}
-      style={{
-        position: "absolute",
-        backgroundColor: "lightblue",
-        padding: "10px",
-        cursor: isDragging ? "grabbing" : "grab",
-      }}
-    >
-      Drag me!
+    <div>
+      <p>Time remaining: {timer.formatted}</p>
+      <p>Minutes: {timer.minutes}</p>
+      <p>Seconds: {timer.seconds}</p>
+
+      <button onClick={timer.start} disabled={timer.isRunning}>
+        Start
+      </button>
+      <button onClick={timer.pause} disabled={timer.isPaused}>
+        Pause
+      </button>
+      <button onClick={timer.reset}>Reset</button>
     </div>
   );
 }

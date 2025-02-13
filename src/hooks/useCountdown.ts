@@ -80,7 +80,7 @@ export function useCountdown(
   const [isPaused, setIsPaused] = useState(!autoStart);
 
   useEffect(() => {
-    let intervalId: NodeJS.Timeout | null = null;
+    let intervalId: number | null = null;
 
     if (isRunning && timeInMs > 0) {
       intervalId = setInterval(() => {

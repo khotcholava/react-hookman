@@ -18,3 +18,4 @@ export * from "./useIdle.ts";
 export * from "./useDragNDrop.ts";
 export * from "./useUpdateEffect.ts";
 export * from "./useCountdown.ts";
+export * from "./useLongPress.ts";
